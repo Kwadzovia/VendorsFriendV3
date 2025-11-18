@@ -1,20 +1,30 @@
-import { router } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+// app/index.tsx
+import { Redirect } from "expo-router";
+import { ActivityIndicator, View } from "react-native";
+import { useAuth } from "../context/AuthContext";
+
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Welcome!</Text>
-        <Pressable
-          onPress={() => router.push("/onboarding")}
-          style={{ padding: 20, backgroundColor: 'purple', borderRadius: 10 }}>
-              <Text style={{ color: 'white' }}>Next</Text>
-        </Pressable>
-    </View>
-  );
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
+  // Not logged in → go to onboarding (which then leads to login/register)
+  if (!session) {
+    return <Redirect href="/onboarding" />;
+  }
+
+  // Logged in → go to your main app screen
+  return <Redirect href="/home" />; // change to "/(tabs)" or whatever later
 }
