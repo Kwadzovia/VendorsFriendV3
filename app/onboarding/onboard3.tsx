@@ -1,19 +1,20 @@
-import { Image, Pressable, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import OnboardingDots from '../../components/onboarddots';
+// app/onboarding/index.tsx
+import { useRouter } from "expo-router";
+import React from "react";
+import OnboardingPage from "../../components/onboardpage";
 
-export default function Onboard3() {
+export default function Onboarding1Screen() {
+  const router = useRouter();
+
   return (
-        <SafeAreaView style={{alignItems: 'center', justifyContent:'center', flex: 1}}>
-            <Image source={(require('../../assets/images/spotify-logo.png'))} style={{ width: 100, height: 100 }}/>
-            <Image source={(require('../../assets/images/standing-13.png'))} style={{ width: 300, height: 300 }} />
-            <Text>Made for Makers</Text>
-            <Text>An app for makers, creators, and vendors alike</Text>
-            <OnboardingDots total={3} current={2} />
-            <Pressable
-            style={{ padding: 20, backgroundColor: 'purple', borderRadius: 10 }}>
-                <Text style={{ color: 'white' }}>Lets Go!</Text>
-            </Pressable>
-        </SafeAreaView>
+    <OnboardingPage
+      image={require("../../assets/images/journal.png")} // ⬅ your first cute image
+      background="#eae7d7"
+      title="Track your progress"
+      description="Organize your ideas, plan your journey, and watch yourself grow"
+      buttonOneText="Register"
+      buttonTwoText="Login"
+      // onNext={() => router.push("/onboarding/onboard")} // ⬅ go to next screen
+    />
   );
 }

@@ -1,22 +1,19 @@
-import { router } from 'expo-router';
-import { Button, Image, Pressable, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import OnboardingDots from '../../components/onboarddots';
+// app/onboarding/index.tsx
+import { useRouter } from "expo-router";
+import React from "react";
+import OnboardingPage from "../../components/onboardpage";
 
-export default function Onboard1() {
+export default function Onboarding1Screen() {
+  const router = useRouter();
+
   return (
-        <SafeAreaView style={{alignItems: 'center', justifyContent:'center', flex: 1}}>
-            <Image source={(require('../../assets/images/spotify-logo.png'))} style={{ width: 100, height: 100 }}/>
-            <Image source={(require('../../assets/images/standing-11.png'))} style={{ width: 300, height: 300 }} />
-            <Text>Made for Makers</Text>
-            <Text>An app for makers, creators, and vendors alike</Text>
-            <OnboardingDots total={3} current={0} />
-            <Pressable
-            onPress={() => router.push("/onboarding/onboard2")}
-            style={{ padding: 20, backgroundColor: 'purple', borderRadius: 10 }}>
-                <Text style={{ color: 'white' }}>Next</Text>
-            </Pressable>
-            <Button title="Skip" onPress={() => {}} />
-        </SafeAreaView>
+    <OnboardingPage
+      image={require("../../assets/images/selling.png")} // ⬅ your first cute image
+      background="#a9c2be"
+      title="Find your next market"
+      description="Discover and share local events! Find whats perfect for you."
+      buttonOneText="Next"
+      onNext={() => router.push("/onboarding/onboard2")} // ⬅ go to next screen
+    />
   );
 }
