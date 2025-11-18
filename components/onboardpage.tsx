@@ -19,7 +19,8 @@ type Props = {
   description: string;
   buttonOneText?: string;
   buttonTwoText?: string;
-  onNext?: () => void;
+  onNext1?: () => void;
+  onNext2?: () => void;
 };
 
 export default function OnboardingPage({
@@ -29,8 +30,8 @@ export default function OnboardingPage({
   description,
   buttonOneText,
   buttonTwoText,
-
-  onNext,
+  onNext1,
+  onNext2,
 }: Props) {
   return (
     <View style={[styles.container, { backgroundColor: background }]}>
@@ -41,11 +42,11 @@ export default function OnboardingPage({
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.desc}>{description}</Text>
       </View>
-      <TouchableOpacity style={styles.button2} onPress={onNext}>
+      <TouchableOpacity style={styles.button2} onPress={onNext1}>
         <Text style={styles.buttonText}>{buttonOneText}</Text>
       </TouchableOpacity>
       {buttonTwoText ? (
-        <TouchableOpacity style={styles.button1} onPress={onNext}>
+        <TouchableOpacity style={styles.button1} onPress={onNext2}>
           <Text style={styles.buttonText}>{buttonTwoText}</Text>
         </TouchableOpacity>
       ) : null}

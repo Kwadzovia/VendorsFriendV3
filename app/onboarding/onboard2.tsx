@@ -13,7 +13,7 @@ export default function Onboarding1Screen() {
       title="Focus on what matters"
       description="We'll help organize the chaos of applications, setup information, and deadlines so you can focus on what you really enjoy."
       buttonOneText="Next"
-      onNext={() => router.push("/onboarding/onboard3")} // ⬅ go to next screen
+      onNext1={() => router.push("/onboarding/onboard3")} // ⬅ go to next screen
     />
   );
 }

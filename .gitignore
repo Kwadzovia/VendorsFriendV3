@@ -36,6 +36,7 @@ yarn-error.*
 eslint.*
 # typescript
 *.tsbuildinfo
+/lib/supabase.ts
 
 app-example
 

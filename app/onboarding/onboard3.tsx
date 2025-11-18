@@ -14,7 +14,8 @@ export default function Onboarding1Screen() {
       description="Organize your ideas, plan your journey, and watch yourself grow"
       buttonOneText="Register"
       buttonTwoText="Login"
-      // onNext={() => router.push("/onboarding/onboard")} // ⬅ go to next screen
+      onNext1={() => router.push("/register")} // ⬅ go to next screen
+      onNext2={() => router.push("/login")} // ⬅ go to next screen
     />
   );
 }
